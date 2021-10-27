@@ -1,0 +1,97 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+% --------------------------------------------------------------------
+% Code listing setup
+% --------------------------------------------------------------------
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolor}{rgb}{0.98,0.98,0.98}
+
+\lstdefinestyle{mystyle}{
+   backgroundcolor=\color{backcolor},
+   commentstyle=\color{codegreen},
+   keywordstyle=\color{magenta},
+   numberstyle=\tiny\color{codegray},
+   stringstyle=\color{codepurple},
+   basicstyle=\ttfamily\scriptsize,
+   frame=shadowbox,
+   breakatwhitespace=false,
+   breaklines=true,
+   captionpos=b,
+   keepspaces=true,
+   numbers=left,
+   numbersep=8pt,
+   showspaces=false,
+   showstringspaces=false,
+   showtabs=false,
+   tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+% --------------------------------------------------------------------
+% Front page setup (Change this)
+% --------------------------------------------------------------------
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+\makeatletter							% Title
+\def\printtitle{%						
+   {\centering \@title\par}}
+\makeatother									
+
+\makeatletter							% Author
+\def\printauthor{%					
+   {\centering \large \@author}}				
+\makeatother							
+
+\title{	\normalsize \textsc{FYS-STK4155 - Applied Data Analysis and Machine Learning} 	% Subtitle
+		 	\\[2.0cm]								% 2cm spacing
+			\HRule{2pt} \\	[0.5cm]				% Upper rule
+			\LARGE \textbf{\uppercase{Project 2}}	% Title
+			\HRule{2pt} \\ [0.5cm]		% Lower rule + 0.5cm spacing
+         \normalsize November 2021 \\
+		}
+
+\author{
+		Håkon Muggerud\\
+		Diederik van Duuren \\
+		Alf Sommer Landsend
+      \begin{center}       
+         \includegraphics[width=\textwidth]{UiO.png}
+      \end{center}
+}
+
+% --------------------------------------------------------------------
+% BEGIN DOCUMENT
+% --------------------------------------------------------------------
+\begin{document}
+
+\thispagestyle{empty}		% Remove page numbering on this page
+
+\printtitle					% Print the title data as defined above
+  	\vfill
+\printauthor				% Print the author data as defined above
+\newpage
+
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+\section{Introduction}
+
+
+
+
+\end{document}
