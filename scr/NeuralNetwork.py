@@ -22,7 +22,10 @@ class NeuralNetwork:
 
         if activation_func == 'sigmoid':
             self.activation_func = lambda z : 1.0/(1.0+np.exp(-z))
-            self.d_activation_func = lambda z : self.activation_func(z) * (1 - self.activation_func(z))
+        elif activation_func == 'relu':
+            self.activation_func = lambda z : np.maximum(np.zeros(z.shape), z)
+        elif activation_func == 'lrelu':
+            pass
 
         if output_activation == 'none':
             self.output_activation = lambda z : z
