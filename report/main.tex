@@ -85,20 +85,81 @@
 \printauthor				% Print the author data as defined above
 \newpage
 
+\begin{abstract}
+    Abstract begins here
+\end{abstract}
+
 \tableofcontents
 \thispagestyle{empty}
 \newpage
 
-\section{Abstract}
+
 \section{Introduction}
+Artificial neural networks have lately become popular partly because of increased computational capacity. Feed-forward neural networks can among other things \cite{jain1996} be used for classification and regression. In this project we will develop our own feed-forward neural network and study both classification and regression. We will compare the results with the results from our own ordinary least squares and logistic regression code and with results obtained with Scikit-Learn.
+
+
 \section{Methods}
+
+    \subsection{Stochastic gradient descent}
+
+    In this part of the project we started by replacing in our standard ordinary least squares and Ridge regression codes from project 1 the matrix inversion algorithm with our own stochastic gradient descent (SGD) code.
+
+               %Insert SDG-function
+
+    We tried to predict values that were calculated by means of the Franke function with noise added. For this we used polynomials of degree 10. For ordinary least squares regression we tried different values of the learning rate in order to find the learning rate that gave the lowest MSE value and the highest R2 value. For Ridge regression we made a grid search to find the hyper-parameter $\lambda$ and the learning rate that gave the highest R2 value.
+    
+    \subsection{Neural network code}
+    
+    We wrote our own feed forward neural network code. As activation function for the hidden layer we used the sigmoid function in this part of the project. The activations of the final output layer were scaled. The weights and biases were initialized, using the standard normal distribution. In order to train the network we used stochastic gradient descent.
+    We studied the Franke function. The results obtained with our neural network were compared to those obtained with ordinary least squares regression and Scikit-learn.
+    \subsection{Testing different activation functions}
+    
+    We tried to replace the sigmoid activation function with the RELU activation function  in the hidden layer of our own neural network. We also replaced the RELU activation function with the sigmoid activation function in the hidden layers of the Scikit-learn MLP-regressor.
+    
 \section{Results}
+    \subsection{Stochastic gradient descent}
+
+Figures 1 and 2 show the test mean squared error and test R2 respectively as a function of the logarithm of the learning rate. As one can see the learning rate must have a certain size.
+
+%Figures (Test MSE - learning rate, Test R2 -learning rate)
+
+The grid search shows that the best value of $\lambda$ is 0.0001, which is as low as it can be in this grid search, and the best learning rate is 0.1.
+
+%Figure (Grid search)
+
+For ordinary least squares regression we found that the SGD code gave higher MSE (0.010) and lower R2 value (0.884) than the matrix inversion algorithm (MSE 0.005 and R2 0.941). The learning rate for the SGD was 0.25.
+
+%Figures
+
+As for ordinary least squares regression we also found for Rigde regression that the SGD code gave higher MSE (0.009) and lower R2 value (0.890) than the matrix inversion algorithm (MSE 0.005 and R2 0.943). The results for Ridge regression are marginally better than those for ordinary least squares. The learning rate for the SGD was 0.1 and $\lambda$ was 0.0001.
+
+    \subsection{Neural network code}
+
+When we used ordinary least squares regression with a polynomial of degree 10, we got a test R2-value of 0.955 and a test MSE of 0.003.
+% Figure
+Our own neural network with a single layer of 13 hidden neurons, 20000 epochs, batch size 10 and learning rate eta 0.044 gave a test R2-value of 0.940 and a test MSE of 0.004
+% Figure
+The MLP-regressor from Scikit-Learn with a single layer of 13 hidden neurons, 20000 epochs, batch size 10 and eta 0.044 gave a test R2-value of 0.824 and a test MSE of 0.012.
+% Figure
+The same MPL-regressor with two layers of hidden neurons, the first with 20 neurons, the second with 100 neurons, 20000 epochs, batch size 20 and eta 0.004 gave a test R2-value of 0.950 and a test MSE of 0.003.
+% Figure
+% Table
+
+\subsection{Testing different activation functions}
+
+When we replaced the sigmoid activation function with the RELU activation function in the hidden layer of our own neural network and used the network to predict the Franke function, we got an test R2-value of -1497 and an test MSE of 102.1. The graph looked very different form the Franke funktion graph. When the RELU activation function was replaced with the sigmoid activation function in the hidden layers of the Scikit-Learn MLP-regressor, the test R2-value was reduced from 0.950 to 0.931, and the test MSE was increased from 0.00338 to 0.00472.
+
 \section{Discussion}
+When we replaced the matrix inversion algorithm with an SGD code our findings for Ridge regression were consistent with those for ordinary least squares regression. In both cases the matrix inversion algorithm gave the best results. The reason for this could be that the SGD code only finds a local minimum.
+% Discussion part b remains to be written.
+The fact that the R2-value decreased and the MSE increased when the RELU activation function was replaced with the sigmoid activation function in the hidden layers of the Scikit-Learn MLP-regressor, was as one would expect. In general the RELU function performs better than the sigmoid function.
+
 \section{Conclusion}
-% You guys can add text to the section by writing here
 
-% \section{Section name} - You can add a new section with this command
-% or a subsection with \subsection{Section name}
 
+
+
+\bibliographystyle{unsrt}
+\bibliography{ref}
 
 \end{document}
